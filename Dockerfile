@@ -1,6 +1,6 @@
 FROM ubuntu:22.04 AS build-env
 
-ENV ASAN_SYMBOLIZER_PATH="/usr/lib/llvm-14/bin/llvm-symbolizer"
+ENV ASAN_SYMBOLIZER_PATH="/usr/lib/llvm-15/bin/llvm-symbolizer"
 ENV ASAN_OPTIONS="alloc_dealloc_mismatch=0"
 ENV UBSAN_OPTIONS="halt_on_error=1:abort_on_error=1"
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -26,7 +26,7 @@ RUN apt-get update && \
 
 # INSTALL CLANG
 RUN add-apt-repository "deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy main" && \
-    apt-get install -y --no-install-recommends clang-14 lldb-14 lld-14 clangd-14 clang-tidy-14 clang-format-14 clang-tools-14 llvm-14-dev llvm-14-tools libomp-14-dev libc++-14-dev libc++abi-14-dev libclang-common-14-dev libclang-14-dev libclang-cpp14-dev libunwind-14-dev
+    apt-get install -y --no-install-recommends clang-15 lldb-15 lld-15 clangd-15 clang-tidy-15 clang-format-15 clang-tools-15 llvm-15-dev llvm-15-tools libomp-15-dev libc++-15-dev libc++abi-15-dev libclang-common-15-dev libclang-15-dev libclang-cpp15-dev libunwind-15-dev
 
 # INSTALL MOLD LINKER
 RUN wget https://github.com/motis-project/mold/releases/download/v1.2.0/mold-linux-amd64 && \
