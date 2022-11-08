@@ -25,7 +25,7 @@ RUN apt-get update && \
         g++-11 gcc-11
 
 # INSTALL CLANG
-RUN add-apt-repository "deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy main" && \
+RUN add-apt-repository "deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main" && \
     apt-get install -y --no-install-recommends clang-15 lldb-15 lld-15 clangd-15 clang-tidy-15 clang-format-15 clang-tools-15 llvm-15-dev llvm-15-tools libomp-15-dev libc++-15-dev libc++abi-15-dev libclang-common-15-dev libclang-15-dev libclang-cpp15-dev libunwind-15-dev
 
 # INSTALL MOLD LINKER
